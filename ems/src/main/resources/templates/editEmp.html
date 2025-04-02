@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Employee</title>
+    <style>
+        /* Basic Styling for form and inputs */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group input[type="file"] {
+            padding: 3px;
+        }
+
+        .form-group button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Edit Employee Details</h2>
+    <form th:action="@{/emp/edit/{id}(id=${employee.id})}" method="POST" enctype="multipart/form-data">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" th:value="${employee.name}" required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" th:value="${employee.dob}" required>
+        </div>
+        <div class="form-group">
+            <label for="salary">Salary</label>
+            <input type="number" id="salary" name="salary" th:value="${employee.salary}" required>
+        </div>
+        <div class="form-group">
+            <label for="designation">Designation</label>
+            <select id="designation" name="idDesig">
+                <option value="" disabled>Select Designation</option>
+                <option th:value="1" th:text="${designations[1]}" th:selected="${employee.idDesig == 1}">Owner</option>
+                <option th:value="2" th:text="${designations[2]}" th:selected="${employee.idDesig == 2}">Manager</option>
+                <option th:value="3" th:text="${designations[3]}" th:selected="${employee.idDesig == 3}">Team Leader</option>
+                <option th:value="4" th:text="${designations[4]}" th:selected="${employee.idDesig == 4}">Developer</option>
+                <option th:value="5" th:text="${designations[5]}" th:selected="${employee.idDesig == 5}">Tester</option>
+                <option th:value="6" th:text="${designations[6]}" th:selected="${employee.idDesig == 6}">Analyst</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="file">Upload New Image (Optional)</label>
+            <input type="file" id="file" name="file">
+        </div>
+        <div class="form-group">
+            <button type="submit">Update Employee</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

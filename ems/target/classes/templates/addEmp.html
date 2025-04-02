@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            width: 100%;
+            background-color: #007bff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar h1 {
+            font-size: 1.8em;
+        }
+
+        .navbar nav {
+            display: flex;
+        }
+
+        .navbar nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar nav a:hover {
+            color: #dbeafe;
+        }
+
+        /* Form Styling */
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            color: #555;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        input[type="reset"] {
+            background-color: #dc3545;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<div class="navbar">
+    <h1>Employee Management System</h1>
+    <nav>
+        <a href="/home/">Home</a>
+        <a href="/emplist/">Employee List</a>
+        <a href="/addEmp/">Add Employee</a>
+        <a href="/about/">About</a>
+    </nav>
+</div>
+
+<!-- Add Employee Form -->
+<form action="/addEmp/" method="post" th:object="${Emplyoee}" enctype="multipart/form-data">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:value="${Emplyoee.name}" required>
+
+    <label for="dob">D.O.B:</label>
+    <input type="date" id="dob" name="dob" th:value="${Emplyoee.dob}" required>
+
+    <label for="idDesig">Select Designation:</label>
+    <select name="idDesig" th:value="${Emplyoee.idDesig}" required>
+        <option value="1">Owner</option>
+        <option value="2">Manager</option>
+        <option value="3">Team Leader</option>
+        <option value="4">Developer</option>
+        <option value="5">Tester</option>
+        <option value="6">Analyst</option>
+    </select>
+
+    <label for="file">Upload Picture:</label>
+    <input type="file" name="file" accept="image/jpeg, image/png" required>
+
+    <label for="salary">Salary:</label>
+    <input type="number" id="salary" name="salary" th:value="${Emplyoee.salary}" required>
+
+    <input type="submit" value="Add Employee">
+    <input type="reset" value="CLEAR">
+</form>
+</body>
+</html>

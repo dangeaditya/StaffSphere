@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Employee Management System</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            width: 100%;
+            background-color: #007bff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar h1 {
+            font-size: 1.8em;
+        }
+
+        .navbar nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 1em;
+            transition: color 0.3s ease;
+        }
+
+        .navbar nav a:hover {
+            color: #dbeafe;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            text-align: center;
+            background: #007bff;
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .about-section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-section h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .about-section p {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-box {
+            background-color: #fefefe;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-box h4 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<div class="navbar">
+    <h1>Employee Management System</h1>
+    <nav>
+        <a href="/home/">Home</a>
+        <a href="/emplist/">Employee List</a>
+        <a href="/addEmp/">Add Employee</a>
+        <a href="/about/">About</a>
+    </nav>
+</div>
+
+<!-- Hero Section -->
+<div class="hero">
+    <h2>About the Employee Management System</h2>
+    <p>Our mission is to empower organizations by providing a seamless and efficient way to manage their workforce.</p>
+</div>
+
+<!-- Main Content -->
+<div class="about-container">
+    <!-- Vision Section -->
+    <div class="about-section">
+        <h3>Our Vision</h3>
+        <p>At EMS, we envision a world where workforce management is streamlined, stress-free, and highly productive. By leveraging cutting-edge technology, we aim to transform how companies handle employee data and performance.</p>
+    </div>
+
+    <!-- Features Section -->
+    <div class="about-section">
+        <h3>Key Features</h3>
+        <div class="features">
+            <div class="feature-box">
+                <h4>Centralized Records</h4>
+                <p>Manage all employee data in one secure and organized platform.</p>
+            </div>
+            <div class="feature-box">
+                <h4>Role-Based Access</h4>
+                <p>Ensure secure access based on roles within the organization.</p>
+            </div>
+            <div class="feature-box">
+                <h4>Real-Time Updates</h4>
+                <p>Get real-time insights and updates on employee performance.</p>
+            </div>
+            <div class="feature-box">
+                <h4>Interactive Dashboard</h4>
+                <p>A user-friendly interface to simplify workforce management tasks.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Section -->
+    <div class="about-section">
+        <h3>Meet the Team</h3>
+        <p>Our team is a blend of skilled developers, creative designers, and tech enthusiasts. With a shared passion for innovation, we work together to deliver solutions that meet and exceed client expectations.</p>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2024 Employee Management System. All rights reserved.</p>
+</div>
+</body>
+</html>
